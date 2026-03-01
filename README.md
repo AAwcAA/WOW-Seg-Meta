@@ -1,7 +1,7 @@
 
 <div align="center">
 <h1>
-WOW-SEG: A WORD-FREE OPEN WORLD SEGMENTATION MODEL
+WOW-Seg: A Word-free Open World Segmentation Model
 </h1>
 
 </div>
