@@ -10,12 +10,12 @@ WOW-SEG: A WORD-FREE OPEN WORLD SEGMENTATION MODEL
 
 [Danyang Li](), [Tianhao Wu](), [Bin Lin](), [Zhenyuan Chen](), [Yang Zhang](), [Yuxuan Li]() <br>
 [Ming-Ming Cheng](), [Xiang Li]() <br>
-NankaiU, XXX, XXX, PekingU
+NKU, SICAU, PKU
 
 </div>
 
 <p align="center">
-  <a href="XXXXX"><b>📕 Paper</b></a> |
+  <a href="https://openreview.net/pdf?id=AyJPSnE1bq"><b>📕 Paper</b></a> |
   <a href="https://huggingface.co/AAwcAA/WOW-Seg"><b>📥 Model Download</b></a> |
   <a href="https://huggingface.co/datasets/AAwcAA/RR-7K"><b>🤗 Dataset</b></a> |
   <a href="#license"><b>📜 License</b></a> |
@@ -84,13 +84,12 @@ We would like to thank the following projects for their contributions to this wo
 If you find WOW-Seg useful for your research and applications, or use our dataset in your research, please use the following BibTeX entry.
 
 ```bibtex
-@misc{li2026wowseg,
-      title={WOW-SEG: A WORD-FREE OPEN WORLD SEGMENTATION MODEL}, 
-      author={Danyang Li and Tianhao Wu and Bin Lin and Zhenyuan Chen and Yang Zhang and Yuxuan Li and Ming-Ming Cheng and Xiang Li},
-      year={2026},
-      eprint={XXXXXX},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={XXXXXXX}, 
+@inproceedings{
+    li2026wowseg,
+    title={{WOW}-Seg: A Word-free Open World Segmentation Model},
+    author={Danyang Li and Tianhao Wu and Bin Lin and Zhenyuan Chen and Yang Zhang and Yuxuan Li and Ming-Ming Cheng and Xiang Li},
+    booktitle={The Fourteenth International Conference on Learning Representations},
+    year={2026},
+    url={https://openreview.net/forum?id=AyJPSnE1bq}
 }
 ```
