@@ -18,6 +18,7 @@ NKU SICAU PKU
   <a href="https://openreview.net/forum?id=AyJPSnE1bq"><b>📕 Paper</b></a> |
   <a href="https://huggingface.co/AAwcAA/WOW-Seg"><b>📥 Model Download</b></a> |
   <a href="#dataset"><b>🤗 Dataset</b></a> |
+  <a href="#evaluation"><b>🔎 Evaluation</b></a> |
   <a href="#license"><b>📜 License</b></a> |
   <a href="#citation"><b>📖 Citation (BibTeX)</b></a> <br>
 </p>
@@ -71,6 +72,42 @@ You can download the RR-7K dataset from the following platforms:
 **Hugging Face**: [RR-7K Dataset](https://huggingface.co/datasets/AAwcAA/RR-7K) ![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-yellow)
 
 **ModelScope**: [RR-7K Dataset](https://www.modelscope.cn/datasets/AAwcAA/RR-7K) ![ModelScope](https://img.shields.io/badge/ModelScope-blue)
+
+
+## Evaluation
+
+Scripts for **open-vocabulary classification on region masks** live in **`wow_eval/`**: convert Osprey-style annotations to InternVL JSONL, then run mask-conditioned inference. Full steps, path placeholders, and file overview are in **[`wow_eval/README.md`](wow_eval/README.md)**.
+
+**Prerequisites** (see the table in `wow_eval/README.md` for details):
+
+| Item | Notes |
+|------|--------|
+| COCO images | Root folder used as `--image_root` (e.g. `train2017/`, `val2017/`). |
+| Osprey eval JSON | From [Osprey](https://github.com/CircleRadon/Osprey); convert with `convert_osprey_to_internvl.py`. |
+| WOW-Seg checkpoint | e.g. [AAwcAA/WOW-Seg](https://huggingface.co/AAwcAA/WOW-Seg) → `--model_path`. |
+| SentenceBERT | e.g. [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) → `--bert_path`. |
+
+**Workflow** (always `cd wow_eval` first):
+
+1. Edit `COCO_ROOT_DIR` and `BATCH_TASKS` in `convert_osprey_to_internvl.py`, then run:
+   ```bash
+   cd wow_eval
+   python convert_osprey_to_internvl.py
+   ```
+2. Run inference (placeholders — replace with your paths):
+   ```bash
+   python single_mask_infer.py \
+     --dataset_path path/to/osprey2internvl_xxx.jsonl \
+     --image_root path/to/coco \
+     --model_path path/to/wow-seg-internvl \
+     --bert_path path/to/all-MiniLM-L6-v2 \
+     --output_path path/to/results \
+     --subset_num 1 \
+     --subset_idx 0
+   ```
+3. For multi-GPU sharding, use `--subset_num` / `--subset_idx` or the example launcher **`single_mask_infer.sh`** (set variables at the top of the script).
+
+Core files: `convert_osprey_to_internvl.py`, `single_mask_infer.py`, `single_mask_infer.sh`, and `internvl/` (model code).
 
 
 ## License
