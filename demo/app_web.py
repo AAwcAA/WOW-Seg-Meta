@@ -750,8 +750,8 @@ def parse_args():
     parser.add_argument("--host", type=str, default="127.0.0.1")
     parser.add_argument("--port", type=int, default=7861)
     parser.add_argument("--device", type=str, default="cuda")
-    parser.add_argument("--min_mask_area", type=int, default=128)
-    parser.add_argument("--max_masks", type=int, default=30)
+    parser.add_argument("--min_mask_area", type=int, default=256)
+    parser.add_argument("--max_masks", type=int, default=8)
     parser.add_argument("--max_new_tokens", type=int, default=DEFAULT_MAX_NEW_TOKENS)
     return parser.parse_args()
 

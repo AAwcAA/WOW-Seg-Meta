@@ -18,6 +18,7 @@ NKU SICAU PKU
   <a href="https://openreview.net/forum?id=AyJPSnE1bq"><b>📕 Paper</b></a> |
   <a href="https://huggingface.co/AAwcAA/WOW-Seg"><b>📥 Model Download</b></a> |
   <a href="#dataset"><b>🤗 Dataset</b></a> |
+  <a href="#demo"><b>🖥️ Demo</b></a> |
   <a href="#evaluation"><b>🔎 Evaluation</b></a> |
   <a href="#license"><b>📜 License</b></a> |
   <a href="#citation"><b>📖 Citation (BibTeX)</b></a> <br>
@@ -73,6 +74,28 @@ You can download the RR-7K dataset from the following platforms:
 
 **ModelScope**: [RR-7K Dataset](https://www.modelscope.cn/datasets/AAwcAA/RR-7K) ![ModelScope](https://img.shields.io/badge/ModelScope-blue)
 
+## Demo
+
+Interactive demo scripts live in **`demo/`**. Full setup steps, checkpoint paths, and launch commands are in **[`demo/README.md`](demo/README.md)**.
+
+The demo currently supports:
+
+- `Auto`
+- `Point Prompt`
+- `BBox Prompt`
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="assets/demo_auto.png" width="100%"></td>
+    <td align="center"><img src="assets/demo_point.png" width="100%"></td>
+    <td align="center"><img src="assets/demo_box.png" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Auto</b></td>
+    <td align="center"><b>Point Prompt</b></td>
+    <td align="center"><b>BBox Prompt</b></td>
+  </tr>
+</table>
 
 ## Evaluation
 
