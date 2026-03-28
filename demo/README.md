@@ -86,3 +86,23 @@ The current web UI supports:
 - `Auto`
 - `Point Prompt`
 - `BBox Prompt`
+
+## Demo Preview
+
+### Auto
+
+<p align="center">
+  <img src="../assets/demo_auto.png" width="95%">
+</p>
+
+### Point Prompt
+
+<p align="center">
+  <img src="../assets/demo_point.png" width="95%">
+</p>
+
+### BBox Prompt
+
+<p align="center">
+  <img src="../assets/demo_box.png" width="95%">
+</p>
