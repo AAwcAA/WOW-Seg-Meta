@@ -84,6 +84,10 @@ The demo currently supports:
 - `Point Prompt`
 - `BBox Prompt`
 
+<p align="center">
+    <img src="assets/demo_ui.png" width="95%"> <br>
+</p>
+
 <table align="center">
   <tr>
     <td align="center"><img src="assets/demo_auto.png" width="100%"></td>
