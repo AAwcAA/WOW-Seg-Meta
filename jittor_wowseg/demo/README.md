@@ -1,35 +1,27 @@
-# WOW-Seg-J Demo：WOW-Seg 的 Jittor Web 推理
+# WOW-Seg-J Demo
 
 ## 目录
 
 ```text
 jittor_wowseg/demo/
-├── app_web.py       # FastAPI Web UI
+├── app_web.py
 ├── batch_pipeline.py
-├── sam_helpers.py
-└── README.md
+└── sam_helpers.py
 ```
-
-原项目的 `demo/` 目录保持不变；本目录只包含 Jittor Demo 的适配代码。
 
 ## 环境
 
-先安装原项目 Demo 依赖和 Jittor 依赖：
+在已配置好的 Jittor/CUDA 环境中，运行前设置：
 
 ```bash
-pip install -r requirements.txt
-pip install -r requirements/jittor_wowseg.txt
+export PATH=/usr/bin:/bin:/usr/local/cuda/bin
+export CUDA_HOME=/usr/local/cuda
+export use_cutlass=0
 ```
-
-## 模型与 SAM
-
-将 [AAwcAA/WOW-Seg-J](https://huggingface.co/AAwcAA/WOW-Seg-J) 下载到本地，
-并准备一个 SAM checkpoint。SAM 只用于 Auto、Point Prompt、BBox Prompt 的
-mask 生成，不参与 WOW-Seg-J 权重。
 
 ## 启动
 
-从仓库根目录启动：
+从仓库根目录运行：
 
 ```bash
 python -m jittor_wowseg.demo.app_web \
@@ -41,5 +33,4 @@ python -m jittor_wowseg.demo.app_web \
 
 访问 `http://127.0.0.1:7861`。
 
-`--jittor_max_dynamic_patch` 默认是 12。显存不足时可降低为 1 或 2；部署配置
-不应为了本地低显存测试永久修改默认值。
+支持 Auto、Point Prompt 和 BBox Prompt。SAM checkpoint 只用于生成 mask，需要单独准备。
