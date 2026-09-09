@@ -1,0 +1,15 @@
+# Local model artifacts (downloaded/generated, not source files)
+jittor_wowseg/weights/*.safetensors
+jittor_wowseg/weights/*.pkl
+jittor_wowseg/weights/*.manifest.json
+jittor_wowseg/weights/wow_seg/
+demo/weights/
+
+# Local inference artifacts
+outputs/
+
+# Python/Jittor build artifacts
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.jittor/
