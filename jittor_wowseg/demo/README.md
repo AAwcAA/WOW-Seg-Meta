@@ -1,9 +1,35 @@
-# WOW-Seg Jittor Demo
+# WOW-Seg-J Demo：WOW-Seg 的 Jittor Web 推理
 
-This is the Jittor-only demo entry point. The original project demo under
-`../../demo/` is intentionally unchanged.
+## 目录
 
-Run from the repository root:
+```text
+jittor_wowseg/demo/
+├── app_web.py       # FastAPI Web UI
+├── batch_pipeline.py
+├── sam_helpers.py
+└── README.md
+```
+
+原项目的 `demo/` 目录保持不变；本目录只包含 Jittor Demo 的适配代码。
+
+## 环境
+
+先安装原项目 Demo 依赖和 Jittor 依赖：
+
+```bash
+pip install -r requirements.txt
+pip install -r requirements/jittor_wowseg.txt
+```
+
+## 模型与 SAM
+
+将 [AAwcAA/WOW-Seg-J](https://huggingface.co/AAwcAA/WOW-Seg-J) 下载到本地，
+并准备一个 SAM checkpoint。SAM 只用于 Auto、Point Prompt、BBox Prompt 的
+mask 生成，不参与 WOW-Seg-J 权重。
+
+## 启动
+
+从仓库根目录启动：
 
 ```bash
 python -m jittor_wowseg.demo.app_web \
@@ -13,5 +39,7 @@ python -m jittor_wowseg.demo.app_web \
   --jittor_max_dynamic_patch 12
 ```
 
-The demo supports Auto, Point Prompt, and BBox Prompt. Install the original
-demo/SAM dependencies in addition to `requirements/jittor_wowseg.txt`.
+访问 `http://127.0.0.1:7861`。
+
+`--jittor_max_dynamic_patch` 默认是 12。显存不足时可降低为 1 或 2；部署配置
+不应为了本地低显存测试永久修改默认值。
